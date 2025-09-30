@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message For You</title>
+    <title>Pesan Spesial</title>
+    
+    <meta name="format-detection" content="telephone=no">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
 
@@ -64,9 +67,7 @@
         }
 
         .container {
-            /* ===== KOTAK UTAMA LEBIH REDUP (TRANSPARAN) ===== */
-            background-color: rgba(255, 255, 255, 0.8); /* Putih dengan transparansi 80% */
-            /* ================================================= */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 40px 50px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -89,36 +90,47 @@
         h2 { 
             font-family: 'Playfair Display', serif;
             font-size: 2.0em;
-            /* ===== WARNA TEKS NAVY ===== */
-            color: #1a2a47; /* Contoh warna navy */
-            /* ========================== */
+            color: #1a2a47;
             margin-bottom: 15px;
         }
 
         .message {
             font-size: 1.1em;
             line-height: 1.8;
-            color: #34495e; /* Warna teks disesuaikan agar kontras dengan background container yang redup */
+            color: #34495e;
             margin-bottom: 30px;
         }
 
         .reason {
-            /* ===== TEXTBOX ALASAN TETAP PUTIH ===== */
-            background-color: #ffffff; /* Putih solid */
-            /* ======================================= */
+            background-color: #ffffff;
             border-left: 4px solid #e74c3c;
             padding: 15px;
             margin: 20px 0;
             text-align: left;
             font-style: italic;
-            color: #333; /* Warna teks di dalam reason */
+            color: #333;
             font-size: 1em;
         }
 
         .footer-note {
             font-size: 0.9em;
-            color: #34495e; /* Warna teks disesuaikan */
+            color: #34495e;
             margin-top: 30px;
+        }
+        
+        /* PERBAIKAN: Aturan untuk Tampilan Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 25px; 
+            }
+
+            h2 {
+                font-size: 1.8em; 
+            }
+
+            .message, .reason, .footer-note {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
@@ -133,8 +145,8 @@
         <div class="floret">❄</div>
         <div class="floret">❄</div>
         <div class="floret">❄</div>
-        <div class="floret">❄</div>
-        <div class="floret">❄</div>
+        <div class="floret">❄</div> 
+        <div class="floret">❄</div> 
     </div>
 
     <div class="container">
@@ -158,5 +170,4 @@
     </div>
 
 </body>
-
 </html>
