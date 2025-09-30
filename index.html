@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesan Spesial</title>
-    
     <meta name="format-detection" content="telephone=no">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
 
@@ -15,7 +13,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            /* PERBAIKAN SCROLL: tinggi minimal seukuran layar, bukan dipaksa pas */
+            min-height: 100vh; 
             margin: 0;
             color: #333;
             text-align: center;
@@ -23,17 +22,18 @@
             box-sizing: border-box;
             position: relative;
             background-color: #3f4a59; 
-            overflow: hidden; 
+            /* PERBAIKAN SCROLL: overflow: hidden dihapus agar bisa scroll jika perlu */
         }
 
         .flower-particles {
-            position: absolute;
+            position: fixed; /* Diubah ke fixed agar tidak ikut scroll */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
             z-index: 0;
+            overflow: hidden; /* Overflow dipindah ke sini agar animasi tetap di layar */
         }
 
         .floret {
@@ -118,10 +118,17 @@
             margin-top: 30px;
         }
         
-        /* PERBAIKAN: Aturan untuk Tampilan Mobile */
+        /* PERBAIKAN ZOOM & RESPONSIVE: Aturan untuk Tampilan Mobile disempurnakan */
         @media (max-width: 600px) {
+            body {
+                /* Padding halaman dikurangi di HP */
+                padding: 15px;
+            }
+
             .container {
                 padding: 30px 25px; 
+                /* Lebar maksimal disesuaikan agar ada sedikit sisa di pinggir */
+                max-width: 95%;
             }
 
             h2 {
@@ -130,6 +137,11 @@
 
             .message, .reason, .footer-note {
                 font-size: 0.95em;
+            }
+            
+            img {
+                /* Pastikan gambar juga tidak terlalu besar */
+                max-width: 120px !important;
             }
         }
     </style>
